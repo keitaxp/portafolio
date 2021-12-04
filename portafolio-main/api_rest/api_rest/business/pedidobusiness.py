@@ -31,12 +31,11 @@ def create(request):
         newpedido = Pedido(
              
              id_mesa = mesas,
-             id_pedido = pedido.get('id_pedido'),
              fecha_pedido = pedido.get('fecha_pedido'),
              precio_total = pedido.get('precio_total')
         )
         newpedido.save()
-        newpedido = Pedido.objects.get(id_pedido=newpedido.id_pedido)
+        newpedido = Pedido.objects.get(precio_total=newpedido.precio_total)
         return JsonResponse(newpedido.json_serializer(), safe=False, content_type="application/json", json_dumps_params={'ensure_ascii': False})
     except Exception as err:
         print(err)

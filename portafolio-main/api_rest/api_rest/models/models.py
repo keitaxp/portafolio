@@ -87,7 +87,6 @@ class Mesas(models.Model):
     estado_reserva = models.CharField(max_length=1)
     id_cliente = models.ForeignKey(Cliente, models.DO_NOTHING, db_column='id_cliente')
     numero_mesa = models.BigIntegerField()
-
     class Meta:
         managed = False
         db_table = 'mesas'
@@ -98,7 +97,7 @@ class Mesas(models.Model):
                     'id_mesa': self.id_mesa,
                     'disponibilidad': self.disponibilidad,
                     'estado_reserva': self.estado_reserva,
-                    'id_cliente': self.id_cliente,
+                    'id_cliente': self.id_cliente.json_serializer(),
                     'numero_mesa': self.numero_mesa
                     
         }
@@ -131,7 +130,12 @@ class PedidoProducto(models.Model):
     class Meta:
         managed = False
         db_table = 'pedido_producto'
-
+   
+    def json_serializer(self):
+        return {
+                    'id_pedido_producto': self.id_pedido_producto,
+                    
+        }
 
 class PedidosProductoIntermedio(models.Model):
     id_producto_intermedio = models.BigIntegerField(primary_key=True)
@@ -143,6 +147,15 @@ class PedidosProductoIntermedio(models.Model):
         managed = False
         db_table = 'pedidos_producto_intermedio'
 
+    def json_serializer(self):
+        return {
+                    'id_producto_intermedio': self.id_producto_intermedio,
+                    'id_producto': self.id_producto.json_serializer(),
+                    'id_pedido_producto': self.id_pedido_producto.json_serializer(),
+                    'cantidad_producto': self.cantidad_producto,
+                   
+                    
+        }
 
 class ProductoReceta(models.Model):
     id_producto_receta = models.BigIntegerField(primary_key=True)

@@ -23,11 +23,13 @@ from api_rest.controler.usuarioscontroler import usuarios, usuariosbyid
 from api_rest.controler.pedidocontroler import pedido, pedidobyid
 from api_rest.controler.bodegacontroler import bodega, bodegabyid
 from api_rest.controler.proveedorcontroler import proveedor, proveedorbyid
+from api_rest.controler.mesascontroler import mesas, mesasbyid
+from api_rest.controler.PedidosProductoIntermediocontroler import PedidosProductoIntermedio, PedidosProductoIntermediobyid
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/receta/', receta ),
     path('api/v1/receta/<int:id>', recetabyid ),
-    
     path('api/v1/producto/', producto ),
     path('api/v1/producto/<int:id>',productobyid),
     path('api/v1/cliente/', cliente ),
@@ -42,6 +44,10 @@ urlpatterns = [
     path('api/v1/bodega/<int:id>',bodegabyid),
     path('api/v1/proveedor/', proveedor ),
     path('api/v1/proveedor/<int:id>',proveedorbyid),
+    path('api/v1/mesas/', mesas ),
+    path('api/v1/mesas/<int:id>',mesasbyid),
+    path('api/v1/PedidosProductoIntermedio/', PedidosProductoIntermedio ),
+    path('api/v1/PedidosProductoIntermedio/<int:id>',PedidosProductoIntermediobyid),
     
 
     

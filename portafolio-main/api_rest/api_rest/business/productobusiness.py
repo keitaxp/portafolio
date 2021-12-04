@@ -24,19 +24,19 @@ def findAll(request):
 def create(request):
     
     try:
-        producto = json.loads(request.body.decode('utf-8'))
-        print('producto -> {0}'.format(producto))
+        productos = json.loads(request.body.decode('utf-8'))
+        print('productos -> {0}'.format(productos))
 
-        proveedor = Proveedor.objects.get(id_proveedor=producto.get('id_proveedor'))
-        newproducto = Productos(
+        proveedor = Proveedor.objects.get(id_proveedor=productos.get('id_proveedor'))
+        newproductos = Productos(
              
              id_proveedor = proveedor,
-             nombre_producto = producto.get('nombre_producto'),
-             descripcion = producto.get('descripcion')
+             nombre_producto = productos.get('nombre_producto'),
+             descripcion = productos.get('descripcion')
         )
-        newproducto.save()
-        newproducto = Productos.objects.get(nombre_producto=newproducto.nombre_producto)
-        return JsonResponse(newproducto.json_serializer(), safe=False, content_type="application/json", json_dumps_params={'ensure_ascii': False})
+        newproductos.save()
+        newproductos = Productos.objects.get(nombre_producto=newproductos.nombre_producto)
+        return JsonResponse(newproductos.json_serializer(), safe=False, content_type="application/json", json_dumps_params={'ensure_ascii': False})
     except Exception as err:
         print(err)
         response = HttpResponse('Error al conectarse a la base de datos.')
