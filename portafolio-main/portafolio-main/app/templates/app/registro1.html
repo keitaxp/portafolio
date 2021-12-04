@@ -1,0 +1,27 @@
+{% extends 'app/base.html' %}
+
+{% block contenido %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <title>Registro Usuario</title>
+</head>
+<body>
+  <section class="form-register">
+    <h4>Registro Usuario</h4>
+    <input class="controls" type="text" name="nombres" id="nombres" placeholder="Ingrese su Nombre usuario">
+    <input class="controls" type="password" name="password" id="password" placeholder="Ingrese su Contraseña">
+    
+    <input class="botons" type="submit" value="Registrar">
+    <p><a href="{% url 'login' %}">Ya estoy registrado</a></p>
+    
+  </section>
+
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block contenido %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> Receta </title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
+<body>
+    <section class="form-register">
+
+      
+      <h4>Agregar Receta</h4>
+
+      <input class="controls" type="number" name="precio" id="precio" placeholder="Ingrese el precio">
+      <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese el nombre">
+      <input class="controls" type="text" name="descripcion" id="descripcion" placeholder="Ingrese su descripcion">
+
+      <button class="botons" id="btnGuardarReceta" name="btnGuardarReceta" value="Guardar Receta">Guardar Receta</button>
+  
+  
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src=" {% static 'app/js/createReceta.js' %}"></script>
+</body>
+</html>
+
+ {% endblock %} 

@@ -1,0 +1,59 @@
+{% extends 'app/base.html' %}
+
+{% block contenido %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+  
+
+</head>
+<body>
+    
+    <form action="">
+
+        <section class="form-register">
+
+            {% if perms.app.add_adminReceta %}
+            <li><a href="{% url 'adminReceta' %}">agregar Receta</a></li>
+            {% endif%}
+
+            {% if perms.app.add_adminProducto %}
+            <li><a href="{% url 'adminProducto' %}">producto</a></li>
+            {% endif%}
+
+            {% if perms.app.adminProveedor %}
+            <li><a href="{% url 'adminProveedor' %}">producto</a></li>
+            {% endif%}
+
+            <input class="botons" type="submit" value="Menu cliente">
+          
+      
+      
+        </section>
+      
+        
+      
+      
+      
+      
+      </form>
+    
+    
+
+
+  
+
+
+
+      <script src="static/app/js/createReceta.js"></script>
+</body>
+</html>
+
+{% endblock %}
+
