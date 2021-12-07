@@ -100,17 +100,16 @@ def registro(request):
 def receta(request):
     return render(request, 'app/receta.html')
 
+def index(request):
+    return render(request, 'app/index.html')    
+
 def adminReceta(request):
     return render(request, 'admin/adminReceta.html') 
 
 def adminUsuario(request):
-    return render(request, 'admin/adminUsuario.html') 
-    
-def base2(request):
-    return render(request, 'inicio/base2.html')  
+    return render(request, 'admin/adminUsuario.html')  
 
-def index(request):
-    return render(request, 'Principal/index.html')
+
   
 
 
