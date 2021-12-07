@@ -1,67 +1,53 @@
-{% load static %}
 
-<!DOCTYPE html>
+{% extends 'app/base.html' %}
+{% load static %}
+{% block contenido %}
+
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-	<title>User Information and Form</title>
-	
-	<!--JQUERY-->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	
-	<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
-	<link rel="stylesheet"
-		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-	<script 
-		src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-	<script 
-		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-	
-	<!-- Los iconos tipo Solid de Fontawesome-->
-	<link rel="stylesheet"
-		href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
-	<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-	
-	<!-- th:href="@{/css/user-form.css}"> <link rel="stylesheet" type="text/css" href="static/css/user-form.css"-->
-	<link rel="stylesheet" type="css" href="{% static 'app/css/admin.css' %}">
-	
-
-	<!-- DATA TABLE -->
-<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">	
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        //Asegurate que el id que le diste a la tabla sea igual al texto despues del simbolo #
-        $('#userList').DataTable();
-    } );
-</script>
+   <title>User Information and Form</title>
+   
+   <!--JQUERY-->
+   <script
+	   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
+   <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+   <link rel="stylesheet"
+	   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <script
+	   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <script 
+	   src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script 
+	   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   
+   <!-- Los iconos tipo Solid de Fontawesome-->
+   <link rel="stylesheet"
+	   href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+   <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+   
+   <!-- Nuestro css-->
 
 </head>
 <body>
-</header>
 	<div class="container">
 		<div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
 			<ul class="nav nav-tabs justify-content-end">
 				<li class="nav-item">
-				<a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">List</a>
+				<a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">Productos</a>
 				</li>
 				<li class="nav-item">
 				<a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Crear</a>				   	
 				</li>
                 <li class="nav-item">
-                    <a class="nav-link" id="form-tab" data-toggle="tab" href="#form2" role="tab" aria-controls="form" aria-selected="true">Actualizar</a>				   	
+                    <a class="nav-link" id="form-tab" data-toggle="tab" href="#form2" role="tab" aria-controls="form" aria-selected="true">Editar</a>				   	
                 </li>
 			</ul>
 			<div class="tab-content" id="myTabContent">
 				<div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
 					<div class="card">
 						<div class="card-header">
-							<h4>Roster</h4>
+							<h4>Administrar Productos</h4>
 						</div>
 						<div class="card-body">
 
@@ -70,11 +56,11 @@
 									<thead class="thead-light">
 									<tr>
 							
-										<th scope="col">id producto </th>
-										<th scope="col">id_proveedor</th>
-										<th scope="col">nombre_producto</th>
-										<th scope="col">descripcion</th>
-										<th scope="col">Accion</th>
+										<th scope="col">N° Producto</th>
+										<th scope="col">N° Proveedor</th>
+										<th scope="col">Producto</th>
+										<th scope="col">Descripcion</th>
+										<th scope="col">Eliminar</th>
 									</tr>
 									</thead>
 									<tbody id="idTbody">
@@ -91,27 +77,27 @@
 
 					<div class="card">
 						<div class="card-header">
-							<h4>Crear Receta</h4>
+							<h4>Agregar producto</h4>
 						</div>
 						<div class="card-body">
 							<!-- Formulario de usuarios-->
 
 							<form class="form" role="form" autocomplete="off">
 								<div class="form-group row">
-									<label class="col-lg-3 col-form-label form-control-label">A que proveedor?(id)</label>
+									<label class="col-lg-3 col-form-label form-control-label">N°Proveedor</label>
 									<div class="col-lg-9">
 								<input class="form-control" type="number" name="id_proveedor" id="id_proveedor" >
 									</div>
 								</div>
 								<!-- input class="controls" type="text" name="descripcion" id="descripcion" placeholder="Ingrese la descripcion">-->
 								<div class="form-group row">
-									<label class="col-lg-3 col-form-label form-control-label">nombre_producto</label>
+									<label class="col-lg-3 col-form-label form-control-label">Nombre</label>
 									<div class="col-lg-9">
 										<input class="form-control" type="text" name="nombre_producto" id="nombre_producto" >
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-lg-3 col-form-label form-control-label">descripcion</label>
+									<label class="col-lg-3 col-form-label form-control-label">Descripcion</label>
 									<div class="col-lg-9">
 										<input class="form-control" type="text" name="descripcion" id="descripcion" >
 									</div>
@@ -121,7 +107,7 @@
 								<div class="form-group row">
 									<div class="col-lg-12 text-center">
 										<input type="reset" class="btn btn-secondary" value="Cancel">
-										<input type="button" id="btnCrearProducto" name="btnCrearProducto" value="Crear Producto"
+										<input type="button" class="btn btn-primary" id="btnCrearProducto" name="btnCrearProducto" value="Guardar"
 											value="Save Changes">
 									</div>
 								</div>
@@ -133,32 +119,32 @@
 
 					<div class="card">
 						<div class="card-header">
-							<h4>Actualizar Receta</h4>
+							<h4>Editar Producto</h4>
 						</div>
 						<div class="card-body">
 							<!-- Formulario de usuarios-->
 
 							<form class="form" role="form" autocomplete="off">
                                 <div class="form-group row">
-									<label class="col-lg-3 col-form-label form-control-label">id producto</label>
+									<label class="col-lg-3 col-form-label form-control-label">N°Producto</label>
 									<div class="col-lg-9">
 								<input class="form-control" type="number" name="id_productoPut" id="id_productoPut" >
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-lg-3 col-form-label form-control-label">id proveedor</label>
+									<label class="col-lg-3 col-form-label form-control-label">N°Proveedor</label>
 									<div class="col-lg-9">
 								<input class="form-control" type="number" name="id_proveedorPut" id="id_proveedorPut" >
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-lg-3 col-form-label form-control-label">nombre producto </label>
+									<label class="col-lg-3 col-form-label form-control-label">Nombre</label>
 									<div class="col-lg-9">
 										<input class="form-control" type="text" name="nombre_productoPut" id="nombre_productoPut" >
 									</div>
 								</div>
 								<div class="form-group row">
-									<label class="col-lg-3 col-form-label form-control-label">descripcion</label>
+									<label class="col-lg-3 col-form-label form-control-label">Descripcion</label>
 									<div class="col-lg-9">
 										<input class="form-control" type="text" name="descripcionPut" id="descripcionPut" >
 									</div>
@@ -166,7 +152,7 @@
 								<div class="form-group row">
 									<div class="col-lg-12 text-center">
 										<input type="reset" class="btn btn-secondary" value="Cancel">
-										<input type="button" id="btnActualizarProducto" name="btnActualizarProducto" value="Actualizar producto"
+										<input type="button" class="btn btn-primary" id="btnActualizarProducto" name="btnActualizarProducto" value="Guardar"
 											value="Save Changes">
 									</div>
 								</div>
@@ -176,20 +162,16 @@
 				</div>
 			</div>
 		</div>
-	</div><!-- Mucho mucho 	
-        
-    codigo aqui -->
-	<script>
-		
-	</script>
-    <script src="{% static 'app/js/jquery.dataTables.min.js' %}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src=" {% static 'app/js/deleteReceta.js' %}"></script>
-    <script src=" {% static 'app/js/getfinallproducto.js' %}"></script>
-    <script src=" {% static 'app/js/putProducto.js' %}"></script> 
-	<script src=" {% static 'app/js/createProducto.js' %}"></script>
+	</div> 
 
-</header>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="{% static 'app/js/jquery.dataTables.min.js' %}"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src=" {% static 'app/js/createProducto.js' %}"></script>
+ <script src=" {% static 'app/js/getfinallproducto.js' %}"></script>
+ <script src=" {% static 'app/js/putProducto.js' %}"></script> 
 </body>
 </html>
+
+{% endblock %} 
 

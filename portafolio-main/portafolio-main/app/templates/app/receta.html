@@ -1,32 +1,44 @@
-{% extends 'app/base.html' %}
-{% load static %}
+ {% extends 'app/base.html' %}
+ {% load static %}
+ {% block contenido %}
 
-{% block contenido %}
-<!DOCTYPE html>
-<html lang="en">
+ <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <title> Receta </title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>User Information and Form</title>
+	
+	<!--JQUERY-->
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script 
+		src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script 
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	
+	<!-- Los iconos tipo Solid de Fontawesome-->
+	<link rel="stylesheet"
+		href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+	<script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+	
+	<!-- Nuestro css-->
+
 </head>
 <body>
-    <section class="form-register">
 
-      
-      <h4>Agregar Receta</h4>
 
-      <input class="controls" type="number" name="precio" id="precio" placeholder="Ingrese el precio">
-      <input class="controls" type="text" name="nombre" id="nombre" placeholder="Ingrese el nombre">
-      <input class="controls" type="text" name="descripcion" id="descripcion" placeholder="Ingrese su descripcion">
-
-      <button class="botons" id="btnGuardarReceta" name="btnGuardarReceta" value="Guardar Receta">Guardar Receta</button>
-  
-  
-    </section>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src=" {% static 'app/js/createReceta.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="{% static 'app/js/jquery.dataTables.min.js' %}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src=" {% static 'app/js/createReceta.js' %}"></script>
+  <script src=" {% static 'app/js/deleteReceta.js' %}"></script>
+  <script src=" {% static 'app/js/getfinallReceta.js' %}"></script>
+  <script src=" {% static 'app/js/putReceta.js' %}"></script> 
 </body>
 </html>
 
- {% endblock %} 
+{% endblock %} 

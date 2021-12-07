@@ -20,38 +20,21 @@
         <section class="form-register">
 
             {% if perms.app.add_adminReceta %}
-            <li><a href="{% url 'adminReceta' %}">agregar Receta</a></li>
+            <div><a href="{% url 'adminReceta' %}">Administrador Recetas</a></div>
             {% endif%}
 
             {% if perms.app.add_adminProducto %}
-            <li><a href="{% url 'adminProducto' %}">producto</a></li>
+            <div><a href="{% url 'adminProducto' %}">Administrador Productos</a></div>
             {% endif%}
 
             {% if perms.app.adminProveedor %}
-            <li><a href="{% url 'adminProveedor' %}">producto</a></li>
+            <div><a href="{% url 'adminProveedor' %}">Administrador Proveedores</a></div>
             {% endif%}
 
-            <input class="botons" type="submit" value="Menu cliente">
-          
-      
-      
         </section>
-      
-        
-      
-      
       
       
       </form>
-    
-    
-
-
-  
-
-
-
-      <script src="static/app/js/createReceta.js"></script>
 </body>
 </html>
 

@@ -97,7 +97,7 @@ def registro(request):
     return render(request, 'registration/registro.html', data)
 
 
-def recetaView(request):
+def receta(request):
     return render(request, 'app/receta.html')
 
 def adminReceta(request):

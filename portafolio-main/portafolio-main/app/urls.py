@@ -1,8 +1,9 @@
 # direcciones de nuetra aplicacion
 
 from django.urls import path
-from .views import home, proveedor_view, productoView, registro, adminReceta, base2, adminUsuario, adminProductoview, adminRecetaView , adminProveedorview
+from .views import home, proveedor_view, productoView, registro, adminReceta, base2, adminUsuario, adminProductoview, adminRecetaView , adminProveedorview , receta
 #from ..api_rest.api_rest.business.recetabusiness import 
+
 
 
 
@@ -17,6 +18,7 @@ urlpatterns = [
     path('adminUsuario/', adminUsuario, name= "adminUsuario"),
     path('adminProducto/', adminProductoview, name= "adminProducto"),
     path('adminProveedor/', adminProveedorview, name= "adminProveedor"),
+    path('receta/', receta, name= "receta"),
     
     
 
