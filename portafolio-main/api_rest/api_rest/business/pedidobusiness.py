@@ -1,5 +1,5 @@
 from typing import cast
-from api_rest.models.models import Mesas
+from api_rest.models.models import Mesa
 from api_rest.models.models import Pedido
 from django.http import JsonResponse, HttpResponse
 from rest_framework import status
@@ -27,10 +27,10 @@ def create(request):
         pedido = json.loads(request.body.decode('utf-8'))
         print('pedido -> {0}'.format(pedido))
 
-        mesas = Mesas.objects.get(id_mesa=pedido.get('id_mesa'))
+        mesa = Mesa.objects.get(id_mesa=pedido.get('id_mesa'))
         newpedido = Pedido(
              
-             id_mesa = mesas,
+             id_mesa = mesa,
              fecha_pedido = pedido.get('fecha_pedido'),
              precio_total = pedido.get('precio_total')
         )
@@ -82,8 +82,8 @@ def update(request):
         pedido = json.loads(request.body.decode('utf-8'))
         print('pedido -> {0}'.format(pedido))
         pedidoup = Pedido.objects.get(id_pedido=pedido.get('id_pedido'))
-        mesas = Mesas.objects.get(id_mesa=pedido.get('id_mesa'))
-        pedidoup.id_mesa = mesas
+        mesa = Mesa.objects.get(id_mesa=pedido.get('id_mesa'))
+        pedidoup.id_mesa = mesa
         pedidoup.fecha_pedido = pedido.get('fecha_pedido')
         pedidoup.precio_total = pedido.get('precio_total')
 

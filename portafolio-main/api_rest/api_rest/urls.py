@@ -23,8 +23,12 @@ from api_rest.controler.usuarioscontroler import usuarios, usuariosbyid
 from api_rest.controler.pedidocontroler import pedido, pedidobyid
 from api_rest.controler.bodegacontroler import bodega, bodegabyid
 from api_rest.controler.proveedorcontroler import proveedor, proveedorbyid
-from api_rest.controler.mesascontroler import mesas, mesasbyid
 from api_rest.controler.PedidosProductoIntermediocontroler import PedidosProductoIntermedio, PedidosProductoIntermediobyid
+from api_rest.controler.mesacontroler import mesa, mesabyid
+from api_rest.controler.mesa_estadocontroler import mesa_estado, mesa_estadobyid
+from api_rest.controler.reservacontroler import reserva, reservabyid
+from api_rest.controler.finanzascontroler import finanzas, finanzasbyid
+from api_rest.controler.reservadocontroler import reservado, reservadobyid
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -44,10 +48,19 @@ urlpatterns = [
     path('api/v1/bodega/<int:id>',bodegabyid),
     path('api/v1/proveedor/', proveedor ),
     path('api/v1/proveedor/<int:id>',proveedorbyid),
-    path('api/v1/mesas/', mesas ),
-    path('api/v1/mesas/<int:id>',mesasbyid),
     path('api/v1/PedidosProductoIntermedio/', PedidosProductoIntermedio ),
     path('api/v1/PedidosProductoIntermedio/<int:id>',PedidosProductoIntermediobyid),
+    path('api/v1/mesa/', mesa ),
+    path('api/v1/mesa/<int:id>',mesabyid),
+    path('api/v1/mesa_estado/', mesa_estado ),
+    path('api/v1/mesa_estado/<int:id>',mesa_estadobyid),
+    path('api/v1/reserva/', reserva ),
+    path('api/v1/reserva/<int:id>',reservabyid),
+    path('api/v1/finanzas/', finanzas ),
+    path('api/v1/finanzas/<int:id>',finanzasbyid),
+    path('api/v1/reservado/', reservado ),
+    path('api/v1/reservado/<int:id>',reservadobyid),
+    
     
 
     

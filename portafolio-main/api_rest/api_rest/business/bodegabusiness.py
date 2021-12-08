@@ -30,12 +30,11 @@ def create(request):
         productos = Productos.objects.get(id_producto=bodega.get('id_producto'))
         newbodega = Bodega(
              
-             id_Producto = productos,
-             id_bodega = bodega.get('id_bodega'),
+             id_producto = productos,
              stock = bodega.get('stock')
         )
         newbodega.save()
-        newbodega = Bodega.objects.get(nombre_producto=newbodega.nombre_producto)
+        newbodega = Bodega.objects.get(stock=newbodega.stock)
         return JsonResponse(newbodega.json_serializer(), safe=False, content_type="application/json", json_dumps_params={'ensure_ascii': False})
     except Exception as err:
         print(err)

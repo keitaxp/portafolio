@@ -81,31 +81,91 @@ class Finanzas(models.Model):
                     'id_usuario': self.id_usuario             
         }       
 
-class Mesas(models.Model):
+
+class Mesa(models.Model):
     id_mesa = models.BigIntegerField(primary_key=True)
     disponibilidad = models.CharField(max_length=1)
-    estado_reserva = models.CharField(max_length=1)
-    id_cliente = models.ForeignKey(Cliente, models.DO_NOTHING, db_column='id_cliente')
-    numero_mesa = models.BigIntegerField()
+    capacidad = models.BigIntegerField()
+
     class Meta:
         managed = False
-        db_table = 'mesas'
+        db_table = 'mesa'
 
 
     def json_serializer(self):
         return {
                     'id_mesa': self.id_mesa,
                     'disponibilidad': self.disponibilidad,
-                    'estado_reserva': self.estado_reserva,
-                    'id_cliente': self.id_cliente.json_serializer(),
-                    'numero_mesa': self.numero_mesa
+                    'capacidad': self.capacidad
                     
         }
 
 
+class Mesa_estado(models.Model):
+    id_mesa_estado = models.BigIntegerField(primary_key=True)
+    id_cliente = models.ForeignKey(Cliente, models.DO_NOTHING, db_column='id_cliente')
+    estado = models.CharField(max_length=1)
+    class Meta:
+        managed = False
+        db_table = 'mesa_estado'
+
+
+    def json_serializer(self):
+        return {
+                    'id_mesa_estado': self.id_mesa_estado,
+                    'id_cliente': self.id_cliente.json_serializer(),
+                    'estado': self.estado
+
+                    
+        }
+
+class Reserva(models.Model):
+    id_reserva = models.BigIntegerField(primary_key=True)
+    id_mesa = models.ForeignKey(Mesa, models.DO_NOTHING, db_column='id_mesa')
+    rut_cliente = models.CharField(max_length=12)
+    cantidad_personas = models.BigIntegerField()
+    fecha = models.DateField()
+
+    class Meta:
+        managed = False
+        db_table = 'reserva'
+
+    def json_serializer(self):
+        return {
+                    'id_reserva': self.id_reserva,
+                    'id_mesa': self.id_mesa.json_serializer(),
+                    'rut_cliente': self.rut_cliente,
+                    'cantidad_personas': self.cantidad_personas,
+                    'fecha': self.fecha
+                   
+                    
+        }
+
+class Reservado(models.Model):
+    id_reservado = models.BigIntegerField(primary_key=True)
+    id_mesa = models.ForeignKey('Mesa', models.DO_NOTHING, db_column='id_mesa')
+    id_cliente = models.ForeignKey(Cliente, models.DO_NOTHING, db_column='id_cliente')
+    cantidad_personas = models.BigIntegerField()
+    fecha = models.DateField()
+    
+    class Meta:
+        managed = False
+        db_table = 'reservado'
+
+    def json_serializer(self):
+        return {
+                    'id_reservado': self.id_reservado,
+                    'id_mesa': self.id_mesa.json_serializer(),
+                    'id_cliente': self.id_cliente.json_serializer(),
+                    'cantidad_personas': self.cantidad_personas,
+                    'fecha': self.fecha
+                   
+                    
+        }
+
 class Pedido(models.Model):
     id_pedido = models.BigIntegerField(primary_key=True)
-    id_mesa = models.ForeignKey(Mesas, models.DO_NOTHING, db_column='id_mesa')
+    id_mesa = models.ForeignKey(Mesa, models.DO_NOTHING, db_column='id_mesa')
     fecha_pedido = models.DateField()
     precio_total = models.BigIntegerField()
 
