@@ -29,7 +29,7 @@ from api_rest.controler.mesa_estadocontroler import mesa_estado, mesa_estadobyid
 from api_rest.controler.reservacontroler import reserva, reservabyid
 from api_rest.controler.finanzascontroler import finanzas, finanzasbyid
 from api_rest.controler.reservadocontroler import reservado, reservadobyid
-
+from api_rest.controler.receta_pedidocontroler import receta_pedido, receta_pedidobyid
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/receta/', receta ),
@@ -60,7 +60,8 @@ urlpatterns = [
     path('api/v1/finanzas/<int:id>',finanzasbyid),
     path('api/v1/reservado/', reservado ),
     path('api/v1/reservado/<int:id>',reservadobyid),
-    
+    path('api/v1/receta_pedido/', receta_pedido ),
+    path('api/v1/receta_pedido/<int:id>',receta_pedidobyid),
     
 
     

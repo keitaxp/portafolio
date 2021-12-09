@@ -163,11 +163,26 @@ class Reservado(models.Model):
                     
         }
 
+class Receta_pedido(models.Model):
+    id_receta_pedido = models.BigIntegerField(primary_key=True)
+    id_receta = models.ForeignKey('Receta', models.DO_NOTHING, db_column='id_receta')
+    
+    class Meta:
+        managed = False
+        db_table = 'receta_pedido'
+
+    def json_serializer(self):
+        return {
+                    'id_receta_pedido': self.id_receta_pedido,
+                    'id_receta': self.id_receta.json_serializer()
+        }
+
 class Pedido(models.Model):
     id_pedido = models.BigIntegerField(primary_key=True)
     id_mesa = models.ForeignKey(Mesa, models.DO_NOTHING, db_column='id_mesa')
     fecha_pedido = models.DateField()
     precio_total = models.BigIntegerField()
+    cantidad = models.BigIntegerField()
 
     class Meta:
         managed = False
@@ -179,8 +194,7 @@ class Pedido(models.Model):
                     'id_mesa': self.id_mesa.json_serializer(),
                     'fecha_pedido': self.fecha_pedido,
                     'precio_total': self.precio_total,
-                   
-                    
+                    'cantidad': self.cantidad
         }
 
 

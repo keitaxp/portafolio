@@ -1,4 +1,4 @@
-let rutaget = "http://127.0.0.1:8001/api/v1/receta/";
+let rutaget = "http://127.0.0.1:8001/api/v1/mesa/";
 
 
 
@@ -11,14 +11,13 @@ $.get(rutaget, function(leerRuta){
     let cont = 0;
     leerRuta.forEach(function(params){
 
-        body += `<tr id="rowListareceta"> 
+        body += `<tr id="rowListamesa"> 
         
-        <td>${params.id_receta}</td>
-        <td>${params.precio}</td>
-        <td>${params.nombre}</td>
-        <td>${params.descripcion}</td>
+        <td>${params.id_mesa}</td>
+        <td>${params.disponibilidad}</td>
+        <td>${params.capacidad}</td>
         <td>
-            <a href="#"><button class="btn btn-primary" id="btnEditar${cont}" onclick="eliminar(${params.id_receta})" /i> Borrar </button>
+            <a href="#"><button class="btn btn-primary" id="btnEditar${cont}" onclick="eliminar(${params.id_mesa})" /i> Borrar </button>
         </td>
         </tr>`
         cont++;
@@ -31,7 +30,7 @@ $.get(rutaget, function(leerRuta){
    
 
     function eliminar(id){
-        let rutaDL = "http://127.0.0.1:8001/api/v1/receta/" + id;
+        let rutaDL = "http://127.0.0.1:8001/api/v1/mesa/" + id;
         let xhr = new XMLHttpRequest();
         console.log("1")
         xhr.open("DELETE", rutaDL);
@@ -47,8 +46,6 @@ $.get(rutaget, function(leerRuta){
                 console.log("el registro no se ha podido eliminar")
             }
         };
+        console.log("3")
         xhr.send();
     }
-    
-    
-

@@ -1,7 +1,7 @@
 from typing import cast
-from api_rest.models.models import Reservado
-from api_rest.models.models import Mesa
 from api_rest.models.models import Cliente
+from api_rest.models.models import Mesa
+from api_rest.models.models import Reservado
 from django.http import JsonResponse, HttpResponse
 from rest_framework import status
 import json

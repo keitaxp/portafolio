@@ -103,6 +103,9 @@ def receta(request):
 def index(request):
     return render(request, 'app/index.html')    
 
+def adminMesa(request):
+    return render(request, 'admin/adminMesa.html')
+
 def adminReceta(request):
     return render(request, 'admin/adminReceta.html') 
 

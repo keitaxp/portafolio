@@ -32,7 +32,8 @@ def create(request):
              
              id_mesa = mesa,
              fecha_pedido = pedido.get('fecha_pedido'),
-             precio_total = pedido.get('precio_total')
+             precio_total = pedido.get('precio_total'),
+             cantidad = pedido.get('cantidad')
         )
         newpedido.save()
         newpedido = Pedido.objects.get(precio_total=newpedido.precio_total)
@@ -86,6 +87,7 @@ def update(request):
         pedidoup.id_mesa = mesa
         pedidoup.fecha_pedido = pedido.get('fecha_pedido')
         pedidoup.precio_total = pedido.get('precio_total')
+        pedidoup.cantidad = pedido.get('cantidad')
 
         pedidoup.save(force_update=True)
         return JsonResponse(pedidoup.json_serializer(), safe=False, content_type="application/json", json_dumps_params={'ensure_ascii': False})
