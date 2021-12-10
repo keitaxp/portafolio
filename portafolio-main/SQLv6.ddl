@@ -69,17 +69,6 @@ CREATE TABLE mesa (
 
 ALTER TABLE mesa ADD CONSTRAINT mesapk PRIMARY KEY ( id_mesa );
 
-CREATE TABLE reservado (
-    id_reservado   INTEGER NOT NULL,
-    id_mesa INTEGER NOT NULL,
-    id_cliente INTEGER NOT NULL,
-    cantidad_personas INTEGER NOT NULL,
-    fecha INTEGER NOT NULL
-);
-
-ALTER TABLE reservado ADD CONSTRAINT reservado_pk PRIMARY KEY ( id_reservado );
-
-
 CREATE TABLE mesa_estado (
     id_mesa_estado INTEGER NOT NULL,
     id_cliente     INTEGER NOT NULL,
@@ -166,12 +155,19 @@ CREATE TABLE usuarios (
 
 ALTER TABLE usuarios ADD CONSTRAINT usuarios_pk PRIMARY KEY ( id_usuario );
 
-ALTER TABLE reservado
-    ADD CONSTRAINT reservado_cliente_fk FOREIGN KEY ( id_cliente )
-        REFERENCES cliente ( id_cliente );
-        
-ALTER TABLE reservado
-    ADD CONSTRAINT reservado_mesa_fk FOREIGN KEY ( id_mesa )
+CREATE SEQUENCE dos
+START WITH 1
+INCREMENT BY 1;
+
+CREATE TRIGGER Triggerro
+BEFORE INSERT ON Reserva
+for EACH ROW
+BEGIN 
+SELECT dos.NEXTVAL INTO :NEW.id_reserva from DUAL;
+END;
+
+ALTER TABLE reserva
+    ADD CONSTRAINT reserva_mesa_fk FOREIGN KEY ( id_mesa )
         REFERENCES mesa ( id_mesa );
 
 ALTER TABLE administrador

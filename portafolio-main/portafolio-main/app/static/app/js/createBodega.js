@@ -1,11 +1,9 @@
-function saveReserva () {
-    let id_mesa = document.getElementById("id_mesa").value;
-    let rut_cliente = document.getElementById("rut_cliente").value;
-    let cantidad_personas = document.getElementById("cantidad_personas").value;
-    let fecha = document.getElementById("fecha").value;
 
+function saveBodega () {
+    let id_producto = document.getElementById("id_producto").value; 
+    let stock = document.getElementById("stock").value;
 
-    let ruta = "http://127.0.0.1:8001/api/v1/reserva/"
+    let ruta = "http://127.0.0.1:8001/api/v1/bodega/"
     
     var xhr = new XMLHttpRequest();
     console.log("1")
@@ -25,10 +23,8 @@ function saveReserva () {
     };
     console.log("1")
     let campo = `{
-        "id_mesa":`+`"${id_mesa}"`+`,
-        "rut_cliente":`+`"${rut_cliente}"`+`,
-        "cantidad_personas":`+`"${cantidad_personas}"`+`,
-        "fecha":`+`"${fecha}"`+`
+        "id_producto":`+`"${id_producto}"`+`, 
+        "stock":`+`"${stock}"`+`
     }`;
     console.log(campo)
     
@@ -37,7 +33,8 @@ function saveReserva () {
 }
 
 
-$("#btnCrearReserva").click(function() {
+$("#btnCrearBodega").click(function() {
     
-    saveReserva();
+    saveBodega();
+    //cambiar nombre fun
 });

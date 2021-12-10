@@ -124,7 +124,7 @@ class Reserva(models.Model):
     id_mesa = models.ForeignKey(Mesa, models.DO_NOTHING, db_column='id_mesa')
     rut_cliente = models.CharField(max_length=12)
     cantidad_personas = models.BigIntegerField()
-    fecha = models.DateField()
+    fecha = models.DateTimeField()
 
     class Meta:
         managed = False

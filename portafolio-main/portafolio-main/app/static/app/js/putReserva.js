@@ -1,15 +1,16 @@
-function saveReserva () {
-    let id_mesa = document.getElementById("id_mesa").value;
-    let rut_cliente = document.getElementById("rut_cliente").value;
-    let cantidad_personas = document.getElementById("cantidad_personas").value;
-    let fecha = document.getElementById("fecha").value;
-
+function uptReserva () {
+    let id_reservaPut = document.getElementById("id_reservaPut").value;
+    let id_mesaPut = document.getElementById("id_mesaPut").value; 
+    let rut_clientePut = document.getElementById("rut_clientePut").value;
+    let cantidad_personasPut = document.getElementById("cantidad_personasPut").value;
+    let fechaPut = document.getElementById("fechaPut").value;
+    
 
     let ruta = "http://127.0.0.1:8001/api/v1/reserva/"
     
     var xhr = new XMLHttpRequest();
     console.log("1")
-    xhr.open("POST", ruta);
+    xhr.open("PUT", ruta);
     xhr.setRequestHeader("Content-Type", "application/json");
     console.log("2")
     xhr.onreadystatechange = function () {
@@ -25,10 +26,11 @@ function saveReserva () {
     };
     console.log("1")
     let campo = `{
-        "id_mesa":`+`"${id_mesa}"`+`,
-        "rut_cliente":`+`"${rut_cliente}"`+`,
-        "cantidad_personas":`+`"${cantidad_personas}"`+`,
-        "fecha":`+`"${fecha}"`+`
+        "id_reserva":`+`"${id_reservaPut}"`+`,
+        "id_mesa":`+`${id_mesaPut}`+`, 
+        "rut_cliente":`+`"${rut_clientePut}"`+`,
+        "cantidad_personas":`+`"${cantidad_personasPut}"`+`,
+        "fecha":`+`"${fechaPut}"`+`
     }`;
     console.log(campo)
     
@@ -37,7 +39,7 @@ function saveReserva () {
 }
 
 
-$("#btnCrearReserva").click(function() {
+$("#btnActualizarReserva").click(function() {
     
-    saveReserva();
+    uptReserva();
 });

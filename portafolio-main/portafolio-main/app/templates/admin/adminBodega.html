@@ -1,0 +1,161 @@
+
+{% extends 'app/base.html' %}
+{% load static %}
+{% block contenido %}
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>User Information and Form</title>
+   
+   <!--JQUERY-->
+   <script
+	   src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
+   <!-- FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
+   <link rel="stylesheet"
+	   href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <script
+	   src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+   <script 
+	   src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script 
+	   src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   
+   <!-- Los iconos tipo Solid de Fontawesome-->
+   <link rel="stylesheet"
+	   href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+   <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+   
+   <!-- Nuestro css-->
+
+</head>
+<body>
+	<div class="container">
+		<div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
+			<ul class="nav nav-tabs justify-content-end">
+				<li class="nav-item">
+				<a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab" aria-controls="list" aria-selected="false">Productos</a>
+				</li>
+				<li class="nav-item">
+				<a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form" aria-selected="true">Crear</a>				   	
+				</li>
+                <li class="nav-item">
+                    <a class="nav-link" id="form-tab" data-toggle="tab" href="#form2" role="tab" aria-controls="form" aria-selected="true">Editar</a>				   	
+                </li>
+			</ul>
+			<div class="tab-content" id="myTabContent">
+				<div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+					<div class="card">
+						<div class="card-header">
+							<h4>Administrar Bodega</h4>
+						</div>
+						<div class="card-body">
+
+							<div class="table-responsive">
+								<table id="userList" class="table table-bordered table-hover table-striped">
+									<thead class="thead-light">
+									<tr>
+										<th scope="col">N° Bodega</th>
+										<th scope="col">N° Producto</th>
+										<th scope="col">Stock</th>
+										<th scope="col">Eliminar</th>
+									</tr>
+									</thead>
+									<tbody id="idTbody">
+									
+									</tbody>
+								</table>
+							</div>
+							
+							<!-- Lista de usuarios-->
+						</div>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="form-tab">
+
+					<div class="card">
+						<div class="card-header">
+							<h4>Agregar Stock</h4>
+						</div>
+						<div class="card-body">
+							<!-- Formulario de usuarios-->
+
+							<form class="form" role="form" autocomplete="off">
+								<div class="form-group row">
+									<label class="col-lg-3 col-form-label form-control-label">N°Producto</label>
+									<div class="col-lg-9">
+								<input class="form-control" type="number" name="id_producto" id="id_producto" >
+									</div>
+								</div>
+								<!-- input class="controls" type="text" name="descripcion" id="descripcion" placeholder="Ingrese la descripcion">-->
+								<div class="form-group row">
+									<label class="col-lg-3 col-form-label form-control-label">Stock</label>
+									<div class="col-lg-9">
+										<input class="form-control" type="number" name="stock" id="stock" >
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<div class="col-lg-12 text-center">
+										<input type="reset" class="btn btn-secondary" value="Cancel">
+										<input type="button" class="btn btn-primary" id="btnCrearBodega" name="btnCrearBodega" value="Guardar"
+											value="Save Changes">
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+                <div class="tab-pane fade" id="form2" role="tabpanel" aria-labelledby="form-tab">
+
+					<div class="card">
+						<div class="card-header">
+							<h4>Editar Stock</h4>
+						</div>
+						<div class="card-body">
+							<!-- Formulario de usuarios-->
+
+							<form class="form" role="form" autocomplete="off">
+                                <div class="form-group row">
+									<label class="col-lg-3 col-form-label form-control-label">N°Bodega</label>
+									<div class="col-lg-9">
+								<input class="form-control" type="number" name="id_bodegaPut" id="id_bodegaPut" >
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-lg-3 col-form-label form-control-label">N°Producto</label>
+									<div class="col-lg-9">
+								<input class="form-control" type="number" name="id_productoPut" id="id_productoPut" >
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-lg-3 col-form-label form-control-label">Stock</label>
+									<div class="col-lg-9">
+										<input class="form-control" type="number" name="stockPut" id="stockPut" >
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-lg-12 text-center">
+										<input type="reset" class="btn btn-secondary" value="Cancel">
+										<input type="button" class="btn btn-primary" id="btnActualizarBodega" name="btnActualizarBodega" value="Guardar"
+											value="Save Changes">
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src="{% static 'app/js/jquery.dataTables.min.js' %}"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+ <script src=" {% static 'app/js/createBodega.js' %}"></script>
+ <script src=" {% static 'app/js/getfinallBodega.js' %}"></script>
+ <script src=" {% static 'app/js/putBodega.js' %}"></script> 
+</body>
+</html>
+
+{% endblock %} 

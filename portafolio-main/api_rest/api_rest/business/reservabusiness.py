@@ -31,7 +31,6 @@ def create(request):
         newreserva = Reserva(
              
              id_mesa = mesa,
-             id_reserva= reserva.get('id_reserva'),
              rut_cliente = reserva.get('rut_cliente'),
              cantidad_personas = reserva.get('cantidad_personas'),
              fecha = reserva.get('fecha')
@@ -89,7 +88,6 @@ def update(request):
         reservaup.rut_cliente = reserva.get('rut_cliente')
         reservaup.cantidad_personas = reserva.get('cantidad_personas')
         reservaup.fecha = reserva.get('fecha')
-        
 
         reservaup.save(force_update=True)
         return JsonResponse(reservaup.json_serializer(), safe=False, content_type="application/json", json_dumps_params={'ensure_ascii': False})

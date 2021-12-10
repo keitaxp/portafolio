@@ -31,10 +31,22 @@
             <div><a href="{% url 'adminProveedor' %}">Administrador Proveedores</a></div>
             {% endif%}
 
+            {% if perms.app.adminPedido %}
+            <div><a href="{% url 'adminPedido' %}">Administrador Pedido</a></div>
+            {% endif%}
+
             {% if perms.app.adminMesa %}
             <div><a href="{% url 'adminMesa' %}">Administrador Mesa</a></div>
             {% endif%}
 
+            {% if perms.app.adminReserva %}
+            <div><a href="{% url 'adminReserva' %}">Administrar Reserva</a></div>
+            {% endif%}
+
+
+            {% if perms.app.adminBodega %}
+            <div><a href="{% url 'adminBodega' %}">Administrar Bodega</a></div>
+            {% endif%}
         </section>
       
       

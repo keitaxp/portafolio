@@ -81,7 +81,8 @@ def update(request):
         bodega = json.loads(request.body.decode('utf-8'))
         print('bodega -> {0}'.format(bodega))
         bodegaup = Bodega.objects.get(id_bodega=bodega.get('id_bodega'))
-        bodegaup.id_producto = bodega.get('id_producto')
+        productos = Productos.objects.get(id_producto=bodega.get('id_producto'))        
+        bodegaup.id_producto = productos
         bodegaup.stock = bodega.get('stock')
         bodegaup.save(force_update=True)
         return JsonResponse(bodegaup.json_serializer(), safe=False, content_type="application/json", json_dumps_params={'ensure_ascii': False})
