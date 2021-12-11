@@ -1,7 +1,7 @@
 
 function saveMesa () {
     let id_mesa = document.getElementById("id_mesa").value; 
-    let disponibilidad = document.getElementById("disponibilidad").value;
+    let disponibilidad = $('input[name="optDispon"]:checked').val();
     let capacidad = document.getElementById("capacidad").value;
 
     let ruta = "http://127.0.0.1:8001/api/v1/mesa/"
@@ -38,4 +38,5 @@ function saveMesa () {
 $("#btnCrearMesa").click(function() {
     
     saveMesa();
+
 });

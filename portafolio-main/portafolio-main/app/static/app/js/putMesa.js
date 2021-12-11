@@ -1,6 +1,6 @@
 function uptMesa () {
     let id_mesaPut = document.getElementById("id_mesaPut").value;
-    let disponibilidadPut = document.getElementById("disponibilidadPut").value; 
+    let disponibilidadPut = $('input[name="optDisponEdit"]:checked').val();
     let capacidadPut = document.getElementById("capacidadPut").value;
 
     let ruta = "http://127.0.0.1:8001/api/v1/mesa/"

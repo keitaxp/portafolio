@@ -39,14 +39,16 @@
             <div><a href="{% url 'adminMesa' %}">Administrador Mesa</a></div>
             {% endif%}
 
-            {% if perms.app.adminReserva %}
+            {% if perms.app.adminMesa %}
             <div><a href="{% url 'adminReserva' %}">Administrar Reserva</a></div>
             {% endif%}
-
-
+            
             {% if perms.app.adminBodega %}
             <div><a href="{% url 'adminBodega' %}">Administrar Bodega</a></div>
             {% endif%}
+
+            <div><a href="{% url 'index' %}">Menu cliente</a></div>
+
         </section>
       
       

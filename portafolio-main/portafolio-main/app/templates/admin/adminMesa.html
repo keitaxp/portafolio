@@ -56,8 +56,8 @@
                                    <tr>
                            
                                        <th scope="col">N°Mesa </th>
-                                       <th scope="col">disponibilidad</th>
-                                       <th scope="col">capacidad</th>
+                                       <th scope="col">Disponibilidad(D-O)</th>
+                                       <th scope="col">Capacidad</th>
                                        <th scope="col">Eliminar</th>
                                    </tr>
                                    </thead>
@@ -87,12 +87,29 @@
                                <input class="form-control" type="number" name="id_mesa" id="id_mesa" >
                                    </div>
                                </div>
+                               
+                               <!-- <form>
+                                <input type="radio" id="disponibilidad2" name="optDispon" value="D">
+                                <label for="disponibilidad2">Disponible</label>
+                               </form>
                                <form>
-                                <input type="radio" id="disponibilidad" name="fav_language" value="o">
-                                <label for="disponibilidad">Ocupada</label><br>
-                                <input type="radio" id="disponibilidad" name="fav_language" value="d">
-                                <label for="disponibilidad">Disponible</label>
-                              </form>
+                                <input type="radio" id="disponibilidad3" name="optDispon2" value="O">
+                                <label for="disponibilidad1">Ocupada</label><br>
+                               </form> -->
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="optDispon" id="idRadioDisponible" value="D" checked>
+                                    <label class="form-check-label" for="idRadioDisponible">
+                                    Disponible
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="optDispon" id="idRadioOcupado" value="O">
+                                    <label class="form-check-label" for="idRadioOcupado">
+                                    Ocupado
+                                    </label>
+                                </div>
+
+
                                <div class="form-group row">
                                    <label class="col-lg-3 col-form-label form-control-label">Capacidad</label>
                                    <div class="col-lg-9">
@@ -128,12 +145,20 @@
                                    </div>
                                </div>
 
-                               <form>
-                                <input type="radio" id="disponibilidadPut" name="disponibilidadPut" value="o">
-                                <label for="disponibilidadPut">Ocupada</label><br>
-                                <input type="radio" id="disponibilidadPut" name="disponibilidadPut" value="d">
-                                <label for="disponibilidadPut">Disponible</label>
-                              </form>
+                               <div class="form-check">
+                                <input class="form-check-input" type="radio" name="optDisponEdit" id="idRadioDisponibleEdit" value="D" checked>
+                                <label class="form-check-label" for="idRadioDisponibleEdit">
+                                Disponible
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="optDisponEdit" id="idRadioOcupadoEdit" value="O">
+                                <label class="form-check-label" for="idRadioOcupadoEdit">
+                                Ocupado
+                                </label>
+                            </div>
+
+                               </form>
                                <div class="form-group row">
                                    <label class="col-lg-3 col-form-label form-control-label">Capacidad</label>
                                    <div class="col-lg-9">
